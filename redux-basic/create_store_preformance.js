@@ -67,7 +67,9 @@ function stateChanger (state, action) {
 }
 
 const store = createStore(appState, stateChanger)
+
 let oldState = store.getState() // 缓存旧的 state
+
 store.subscribe(() => {
   const newState = store.getState() // 数据可能变化，获取新的 state
   renderApp(newState, oldState) // 把新旧的 state 传进去渲染
